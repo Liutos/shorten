@@ -1,0 +1,14 @@
+{
+    "mysql": {
+        "DRIVER": "{MySQL ODBC 8.0 Driver}",
+        "String Types": "Unicode",
+        "password": "1234567",
+        "port": "3306",
+        "server": "mysql",
+        "user": "root"
+    },
+    "redis": {
+        "hostname": "redis",
+        "port": "6379"
+    }
+}

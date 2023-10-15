@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  app:
+    build: 
+      context: ./
+      dockerfile: app.dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app
+  mysql:
+    build:
+      context: ./
+      dockerfile: mysql.dockerfile
+    ports:
+      - "13306:3306"
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+  redis:
+    image: redis
+
+volumes:
+  todo-mysql-data:

@@ -2,6 +2,18 @@
 
 演示用 SWI-Prolog 开发短链服务。
 
+## 启动
+
+```shell
+docker-compose up
+```
+
+启动成功后，就可以请求短链服务的接口了。
+
+```shell
+curl -X POST 'http://localhost:8080/api/shorten?url=abcdefg'
+```
+
 ## 在 Docker 中运行该程序
 
 假设文件`main.pl`中的内容如下
@@ -103,3 +115,7 @@ shorten_url(Request) :-
 $ curl -F 'url=https://example.com' -X POST 'http://localhost:8080/api/shorten'
 url is https://example.com
 ```
+
+## 将 URL 记录到数据库中
+
+需要一种手段将请求该接口时的参数`url`与短链的关系存储起来，以便在为了可以在遇到对短链的访问时，让访问者被重定向到真正的 URL 上。
